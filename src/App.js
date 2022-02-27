@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      user :" ",
+      topTime : "",
+      newTime : "",
+    }
+  }
+  Loadpage()
+  Loadpage = async(loadPageData) =>{
+    const url = "http://localhost:8000/members"
+    try{
+      const Data = await fetch(url,{
+        credentials: 'include',
+        method: 'GET',
+      })
+      const dataRecived = await url.json()
+      console.log(">>>>>>>" + dataRecived.data)
+    }catch(err){
+      if(err){
+        console.error(err)
+      }
+    }
+    console.log(url)
+    this.setState({
+      user : url
+    })
+  }
+
+
+
+render(){
+   
+    return (
+        <div className = 'loadpage'> 
+          
+      
+        </div>
+
+
+      )
+  }
+} 
 
 export default App;
