@@ -9,35 +9,37 @@ class App extends Component {
       newTime : "",
     }
   }
-  Loadpage()
-  Loadpage = async(loadPageData) =>{
+
+  loadPage = async () =>{
     const url = "http://localhost:8000/members"
     try{
       const Data = await fetch(url,{
         credentials: 'include',
         method: 'GET',
+        
       })
-      const dataRecived = await url.json()
-      console.log(">>>>>>>" + dataRecived.data)
+      const dataJson = await Data.json()
+
+      console.log(dataJson.data)
+      
+     
+      
     }catch(err){
       if(err){
         console.error(err)
       }
     }
     console.log(url)
-    this.setState({
-      user : url
-    })
+
   }
 
 
-
 render(){
-   
+    
     return (
-        <div className = 'loadpage'> 
-          
-      
+        <div > 
+            
+           {this.loadPage()}
         </div>
 
 
