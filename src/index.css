@@ -47,4 +47,50 @@ h2{
 }
 #wordle{
 	text-align: center;
+	font-family: Georgia;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+    text-align: center;
+    left: 0;
+    right: 0;
+    pointer-events: none
+}
+.keyHolder{
+	width: auto;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 10px;
+
+
+}
+#keyLetters{
+	color: white;
+	text-decoration: none;
+	font-family: Arial;
+	height: 60px;
+	width: 45px;
+	border-radius: 5px;
+	background-color: #818384;
+	padding: 7px;
+
+}
+#keyLetterd{
+	color: white;
+	text-decoration: none;
+	font-family: Arial;
+	height: 60px;
+	width: 65px;
+	border-radius: 5px;
+	background-color: #818384;
+	padding: 7px;
+
+}
+.mainCont{
+	display: flex;
+	justify-content: center;
+	padding: 5px;
 }
