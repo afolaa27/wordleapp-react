@@ -1,0 +1,50 @@
+body{
+	background-color: black;
+}
+.wordContainer{
+
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	background-color: black;
+}
+h4{
+	color: white;
+}
+h2{
+	color: white;
+}
+.bigSquare{
+	margin: auto;
+	width: 350px;
+	border : 7px solid;
+	padding: 7px;
+	border-color: black;
+
+
+}
+
+#square{
+	height: 60px;
+	width: 60px;
+	border: 2px solid;
+	border-color: darkgrey;
+	background-color: black;
+	border-radius: 1px;
+
+
+}
+#row {
+	
+	padding: 4px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: black;
+	
+}
+#wordle{
+	text-align: center;
+}

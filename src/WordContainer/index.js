@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Button, Container, Form, Search, Grid, Input} from 'semantic-ui-react'
+import WordList from '../WordList'
 
 
 
@@ -8,6 +9,7 @@ class FindWords extends Component{
 		super(props)
 		this.state={
 			wordOfTheDay : '',
+			wordSplit : '',
 			FirstGuess: '',
 			SecondGuess: '',
 			ThirdGuess: '',
@@ -18,6 +20,7 @@ class FindWords extends Component{
 
 	componentDidMount = async()=>{
 		await this.getWord()
+		
 	}
 
 	getWord = async () =>{
@@ -32,16 +35,28 @@ class FindWords extends Component{
 
 		const words = await wordsApi.json()
 		this.setState({
-			wordOfTheDay : words
+			wordOfTheDay : words.word
 
 		})
-		console.log(words)
+		console.log(this.state.wordOfTheDay)
+		this.splitWord()
+	}
+
+	splitWord = async () =>{
+		console.log(this.state.wordOfTheDay)
+		const splitW  = this.state.wordOfTheDay.split("")
+		console.log(" i amm here ", splitW)
+		this.setState({
+			wordSplit : splitW
+		})
+		console.log(this.state.wordSplit)
+
 	}
 	render(){
 		return(
 
 				<div>
-					
+					<WordList wordle={this.state.wordSplit}/>
 				</div>
 
 			)
