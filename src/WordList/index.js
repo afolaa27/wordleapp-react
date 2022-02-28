@@ -2,8 +2,14 @@ import React from 'react'
 import {Item, Button, Image, Container, Icon, Divider} from 'semantic-ui-react'
 import '../index.css'
 
-
-
+function addLetter() {
+	const count = 0;
+	
+}
+function keyClicked(input){
+	const val = input
+	console.log('ive been clicked', val.target.value)
+}
 function WordList(props){
 
 	const letter = props.wordle
@@ -72,42 +78,42 @@ return(
 		<div className ='keyHolder'>
 			<div className='mainCont'>
 				
-				<button id = 'keyLetters'>Q</button>
-				<button id = 'keyLetters'>W</button>
-				<button id = 'keyLetters'>E</button>
-				<button id = 'keyLetters'>R</button>
-				<button id = 'keyLetters'>T</button>
-				<button id = 'keyLetters'>Y</button>
-				<button id = 'keyLetters'>U</button>
-				<button id = 'keyLetters'>I</button>
-				<button id = 'keyLetters'>O</button>
-				<button id = 'keyLetters'>P</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='Q'>Q</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='W'>W</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='E'>E</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='R'>R</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='T'>T</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='Y'>Y</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='U'>U</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='I'>I</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='O'>O</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='P'>P</button>
 
 			</div>
 			<div className='mainCont'>
 				
-				<button id = 'keyLetters'>A</button>
-				<button id = 'keyLetters'>S</button>
-				<button id = 'keyLetters'>D</button>
-				<button id = 'keyLetters'>F</button>
-				<button id = 'keyLetters'>G</button>
-				<button id = 'keyLetters'>H</button>
-				<button id = 'keyLetters'>J</button>
-				<button id = 'keyLetters'>K</button>
-				<button id = 'keyLetters'>L</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='A'>A</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='S'>S</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='D'>D</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='F'>F</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='G'>G</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='H'>H</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='J'>J</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='K'>K</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='L'>L</button>
 				
 
 			</div>
 			<div className='mainCont'>
 				
 				<button id = 'keyLetterd'>ENTER</button>
-				<button id = 'keyLetters'>Z</button>
-				<button id = 'keyLetters'>X</button>
-				<button id = 'keyLetters'>C</button>
-				<button id = 'keyLetters'>V</button>
-				<button id = 'keyLetters'>B</button>
-				<button id = 'keyLetters'>N</button>
-				<button id = 'keyLetters'>M</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='Z'>Z</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='X'>X</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='C'>C</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='V'>V</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='B'>B</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='N'>N</button>
+				<button id = 'keyLetters' onClick={keyClicked} value='M'>M</button>
 				<button id = 'keyLetterd'>DEL</button>
 				
 

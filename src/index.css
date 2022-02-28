@@ -87,7 +87,7 @@ h2{
 	width: 65px;
 	border-radius: 5px;
 	background-color: #818384;
-
+	
 
 }
 .mainCont{
@@ -97,8 +97,17 @@ h2{
 	padding: 5px;
 
 }
-#keyLetters{
+#keyLetters ,#KeyLetterd{
 	transition-duration: 0.4s;
+}
+
+
+
+
+ #keyLetterd:hover{
+	background-color: white;
+	opacity: 0.2;
+	color: black;
 }
 #keyLetters:hover{
 	background-color: white;
