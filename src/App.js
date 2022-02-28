@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import WordContainer from './WordContainer'
 
 class App extends Component {
   constructor(props){
@@ -39,7 +40,7 @@ render(){
     return (
         <div > 
             
-           {this.loadPage()}
+           <WordContainer/>
         </div>
 
 
