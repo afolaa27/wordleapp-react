@@ -31,7 +31,7 @@ h2{
 	width: 60px;
 	border: 2px solid;
 	border-color: darkgrey;
-	background-color: black;
+	
 	border-radius: 1px;
 
 
@@ -63,7 +63,7 @@ h2{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 10px;
+	padding: 30px;
 
 
 }
@@ -75,7 +75,8 @@ h2{
 	width: 45px;
 	border-radius: 5px;
 	background-color: #818384;
-	padding: 7px;
+	
+
 
 }
 #keyLetterd{
@@ -86,11 +87,21 @@ h2{
 	width: 65px;
 	border-radius: 5px;
 	background-color: #818384;
-	padding: 7px;
+
 
 }
 .mainCont{
+
 	display: flex;
 	justify-content: center;
 	padding: 5px;
+
+}
+#keyLetters{
+	transition-duration: 0.4s;
+}
+#keyLetters:hover{
+	background-color: white;
+	opacity: 0.2;
+	color: black;
 }
