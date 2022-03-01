@@ -1,19 +1,88 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Item, Button, Image, Container, Icon, Divider} from 'semantic-ui-react'
 import '../index.css'
 
-function addLetter() {
-	const count = 0;
+
+class WordList extends Component{
+	constructor(props){
+		super(props)
+
+		this.state={
+			level : 0,
+			position: 0,
+			char: '',
+			one: '',
+			two: '',
+			three:'',
+			five: '',
+			six: '',
+			seven : '',
+			eight : '',
+			nine : '',
+			ten : '',
+
+ 		}
+	}
+
+
+
+addLetter (letPos) {
+	if(this.state.level == 0){
+		if(this.state.position == 0){
+			this.setState({
+				one : letPos,
+				position : 1
+			})
+			
+		}
+		else if(this.state.position == 1){
+			this.setState({
+				two : letPos,
+				position : 2
+			})
+		}
+		else if(this.state.position == 2){
+			this.setState({
+				three : letPos,
+				position : 3
+			})
+		}
+		else if(this.state.position == 3){
+			this.setState({
+				four : letPos,
+				position : 4
+			})
+		}
+		else if(this.state.position == 4){
+			this.setState({
+				five : letPos,
+				position : 0,
+				level : 1
+			})
+		}
+
+	}
+
+			
+	
+
 	
 }
-function keyClicked(input){
-	const val = input
-	console.log('ive been clicked', val.target.value)
-}
-function WordList(props){
 
-	const letter = props.wordle
-	console.log("i dey here sooo >",letter[2])
+keyClicked = async(input) => {
+	const val = input
+	const lett = val.target.value
+	console.log('ive been clicked', lett)
+	console.log("i dey here sooo >>>>>>",this.props.wordle[1])
+	this.addLetter(lett)
+
+}
+
+
+checkWord =async()=>{
+
+}
+render(){
 
 return(
 
@@ -26,20 +95,20 @@ return(
 
 				<div className='firstRow' id='row'>
 
-					<div className = 'firstRowOne' id= 'square'></div>
-					<div className = 'firstRowTwo' id= 'square'></div>
-					<div className = 'firstRowThree' id= 'square'></div>
-					<div className = 'firstRowFour' id= 'square'></div>
-					<div className = 'firstRowFive' id= 'square'></div>
+					<div className = 'firstRowOne' id= 'square'> <h2>{this.state.one}</h2> </div>
+					<div className = 'firstRowTwo' id= 'square'> < h2>{this.state.two}</h2> </div>
+					<div className = 'firstRowThree' id= 'square'> < h2>{this.state.three}</h2> </div>
+					<div className = 'firstRowFour' id= 'square'> < h2>{this.state.four}</h2> </div>
+					<div className = 'firstRowFive' id= 'square'> < h2>{this.state.five}</h2> </div>
 
 				</div>
 		
 				<div className='secondRow' id='row'>
-						<div className = 'secondRowOne' id= 'square'></div>
-						<div className = 'secondRowTwo' id= 'square'></div>
-						<div className = 'secondRowThree' id= 'square'></div>
-						<div className = 'secondRowFour' id= 'square'></div>
-						<div className = 'secondRowFive' id= 'square'></div>
+						<div className = 'secondRowOne' id= 'square'><h2>{this.state.six}</h2></div>
+						<div className = 'secondRowTwo' id= 'square'><h2>{this.state.seven}</h2></div>
+						<div className = 'secondRowThree' id= 'square'><h2>{this.state.eight}</h2></div>
+						<div className = 'secondRowFour' id= 'square'><h2>{this.state.nine}</h2></div>
+						<div className = 'secondRowFive' id= 'square'><h2>{this.state.nine}</h2></div>
 				</div>
 				
 				<div className='thirdRow' id='row'>
@@ -78,42 +147,42 @@ return(
 		<div className ='keyHolder'>
 			<div className='mainCont'>
 				
-				<button id = 'keyLetters' onClick={keyClicked} value='Q'>Q</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='W'>W</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='E'>E</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='R'>R</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='T'>T</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='Y'>Y</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='U'>U</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='I'>I</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='O'>O</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='P'>P</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='Q'>Q</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='W'>W</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='E'>E</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='R'>R</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='T'>T</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='Y'>Y</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='U'>U</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='I'>I</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='O'>O</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='P'>P</button>
 
 			</div>
 			<div className='mainCont'>
 				
-				<button id = 'keyLetters' onClick={keyClicked} value='A'>A</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='S'>S</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='D'>D</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='F'>F</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='G'>G</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='H'>H</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='J'>J</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='K'>K</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='L'>L</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='A'>A</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='S'>S</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='D'>D</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='F'>F</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='G'>G</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='H'>H</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='J'>J</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='K'>K</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='L'>L</button>
 				
 
 			</div>
 			<div className='mainCont'>
 				
 				<button id = 'keyLetterd'>ENTER</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='Z'>Z</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='X'>X</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='C'>C</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='V'>V</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='B'>B</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='N'>N</button>
-				<button id = 'keyLetters' onClick={keyClicked} value='M'>M</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='Z'>Z</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='X'>X</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='C'>C</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='V'>V</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='B'>B</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='N'>N</button>
+				<button id = 'keyLetters' onClick= {this.keyClicked} value='M'>M</button>
 				<button id = 'keyLetterd'>DEL</button>
 				
 
@@ -127,6 +196,7 @@ return(
 	)
 
 	
+	}
 }
 
 
