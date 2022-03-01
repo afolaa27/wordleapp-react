@@ -30,8 +30,8 @@ class WordList extends Component{
 
 
 addLetter (letPos) {
-	if(this.state.level == 0){
-		if(this.state.position == 0){
+	if(this.state.level === 0){
+		if(this.state.position === 0){
 			this.setState({
 				one : letPos,
 				firstG: this.state.firstG.concat(letPos),
@@ -39,33 +39,33 @@ addLetter (letPos) {
 			})
 			
 		}
-		else if(this.state.position == 1){
+		else if(this.state.position === 1){
 			this.setState({
 				two : letPos,
 				firstG: this.state.firstG.concat(letPos),
 				position : 2
 			})
 		}
-		else if(this.state.position == 2){
+		else if(this.state.position === 2){
 			this.setState({
 				three : letPos,
 				firstG: this.state.firstG.concat(letPos),
 				position : 3
 			})
 		}
-		else if(this.state.position == 3){
+		else if(this.state.position === 3){
 			this.setState({
 				four : letPos,
 				firstG: this.state.firstG.concat(letPos),
 				position : 4
 			})
 		}
-		else if(this.state.position == 4){
+		else if(this.state.position === 4){
 			this.setState({
 				five : letPos,
 				firstG: this.state.firstG.concat(letPos),
 				position : 0,
-				
+				level:1
 			})
 		}
 
@@ -89,7 +89,7 @@ checkWord =async()=>{
 	const wordleLen = this.props.wordle.length
 	
 
-	if(this.state.level === 0){
+	if(this.state.level === 1){
 
 		for(let i = 0; i < wordleLen ; i++){
 			for(let j =0; j<this.state.firstG.length; j++){
