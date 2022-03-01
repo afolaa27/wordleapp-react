@@ -8,11 +8,14 @@ class WordList extends Component{
 		super(props)
 
 		this.state={
+			color:  '',
+			st:'',
 			level : 0,
+			firstG : [],
 			position: 0,
 			char: '',
 			one: '',
-			two: '',
+			two:'' ,
 			three:'',
 			five: '',
 			six: '',
@@ -31,6 +34,7 @@ addLetter (letPos) {
 		if(this.state.position == 0){
 			this.setState({
 				one : letPos,
+				firstG: this.state.firstG.concat(letPos),
 				position : 1
 			})
 			
@@ -38,34 +42,34 @@ addLetter (letPos) {
 		else if(this.state.position == 1){
 			this.setState({
 				two : letPos,
+				firstG: this.state.firstG.concat(letPos),
 				position : 2
 			})
 		}
 		else if(this.state.position == 2){
 			this.setState({
 				three : letPos,
+				firstG: this.state.firstG.concat(letPos),
 				position : 3
 			})
 		}
 		else if(this.state.position == 3){
 			this.setState({
 				four : letPos,
+				firstG: this.state.firstG.concat(letPos),
 				position : 4
 			})
 		}
 		else if(this.state.position == 4){
 			this.setState({
 				five : letPos,
+				firstG: this.state.firstG.concat(letPos),
 				position : 0,
-				level : 1
+				
 			})
 		}
 
 	}
-
-			
-	
-
 	
 }
 
@@ -81,7 +85,36 @@ keyClicked = async(input) => {
 
 checkWord =async()=>{
 
+	console.log("new lerr" , this.state.firstG)
+	const wordleLen = this.props.wordle.length
+	
+
+	if(this.state.level === 0){
+
+		for(let i = 0; i < wordleLen ; i++){
+			for(let j =0; j<this.state.firstG.length; j++){
+			console.log(this.props.wordle[i].toUpperCase())
+
+				if(this.props.wordle[i].toUpperCase() === this.state.firstG[j]){
+						
+					this.setState({
+								color: 'FirstGreen'
+					})
+					
+				}
+			}
+		}
+	}
 }
+
+changeColor = async(rowNum)=>{
+
+		//this.setState({
+			//color: 'FirstGreen'+i,
+		//})
+	//}
+}
+
 render(){
 
 return(
@@ -91,20 +124,21 @@ return(
 
 		<Divider/>
 
+			//this is where my squares are stored
 			<div className='bigSquare'>
 
 				<div className='firstRow' id='row'>
 
-					<div className = 'firstRowOne' id= 'square'> <h2>{this.state.one}</h2> </div>
-					<div className = 'firstRowTwo' id= 'square'> < h2>{this.state.two}</h2> </div>
-					<div className = 'firstRowThree' id= 'square'> < h2>{this.state.three}</h2> </div>
-					<div className = 'firstRowFour' id= 'square'> < h2>{this.state.four}</h2> </div>
-					<div className = 'firstRowFive' id= 'square'> < h2>{this.state.five}</h2> </div>
+					<div className = {'bK' + this.state.color}  id= 'square'> <h2>{this.state.one}</h2> </div>
+					<div className = {'bK' + this.state.color} id= 'square'> < h2>{this.state.two}</h2> </div>
+					<div className = {'bK' + this.state.color} id= 'square'> < h2>{this.state.three}</h2> </div>
+					<div className = {'bK' + this.state.color} id= 'square'> < h2>{this.state.four}</h2> </div>
+					<div className = {'bK' + this.state.color} id= 'square'> < h2>{this.state.five}</h2> </div>
 
 				</div>
 		
 				<div className='secondRow' id='row'>
-						<div className = 'secondRowOne' id= 'square'><h2>{this.state.six}</h2></div>
+						<div className = 'firstRow1'  id= 'square'><h2>{this.state.six}</h2></div>
 						<div className = 'secondRowTwo' id= 'square'><h2>{this.state.seven}</h2></div>
 						<div className = 'secondRowThree' id= 'square'><h2>{this.state.eight}</h2></div>
 						<div className = 'secondRowFour' id= 'square'><h2>{this.state.nine}</h2></div>
@@ -145,6 +179,7 @@ return(
 			</div>
 
 		<div className ='keyHolder'>
+		
 			<div className='mainCont'>
 				
 				<button id = 'keyLetters' onClick= {this.keyClicked} value='Q'>Q</button>
@@ -175,7 +210,7 @@ return(
 			</div>
 			<div className='mainCont'>
 				
-				<button id = 'keyLetterd'>ENTER</button>
+				<button id = 'keyLetterd' onClick= {this.checkWord}>ENTER</button>
 				<button id = 'keyLetters' onClick= {this.keyClicked} value='Z'>Z</button>
 				<button id = 'keyLetters' onClick= {this.keyClicked} value='X'>X</button>
 				<button id = 'keyLetters' onClick= {this.keyClicked} value='C'>C</button>
